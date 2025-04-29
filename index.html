@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Parkour Queen YT</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: hidden; /* prevents vertical scroll */
+      height: 100%;
+      background: url('https://i.postimg.cc/j5G2bhyJ/bloxd-events-background.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100vh;
+    }
+
+    #home {
+      text-align: center;
+      padding: 2rem 1rem 0;
+      flex-shrink: 0;
+    }
+
+    #home img {
+      max-width: 60%;
+      height: auto;
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .links a {
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid black;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .links a.youtube {
+      color: red;
+    }
+
+    .links a.discord {
+      color: blue;
+    }
+
+    #texturepacks {
+      text-align: center;
+      padding: 1rem;
+      flex-shrink: 0;
+    }
+
+    #texturepacks h2,
+    #texturepacks .texturepack-description {
+      background-color: white;
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .texturepack-list {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .texturepack-item {
+      background: #1e1e1e;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      max-width: 400px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .texturepack-item img {
+      width: 50px;
+      height: 50px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    .texturepack-item h3 {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0;
+      color: white;
+    }
+
+    .texturepack-item a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      background: white;
+      color: black;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 0.8rem;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Home Section -->
+  <section id="home">
+    <img src="https://i.postimg.cc/xTKwtTVH/Title-website.png" alt="Parkour Queen Title">
+    <div class="links">
+      <a href="https://www.youtube.com/@Parkour_Queen_YT" target="_blank" class="youtube">YouTube Channel</a>
+      <a href="https://discord.com/invite/KszxTXuuNU" target="_blank" class="discord">Discord Server</a>
+    </div>
+  </section>
+
+  <!-- Texturepacks Section -->
+  <section id="texturepacks">
+    <h2>Texture Packs</h2>
+    <p class="texturepack-description">Browse and download our official texturepack created for events!</p>
+
+    <div class="texturepack-list">
+      <div class="texturepack-item">
+        <img src="https://i.postimg.cc/59LXfLMC/bloxd-io-logo.png" alt="Texturepack Image">
+        <h3>Bloxd EVENTS Official T-Pack</h3><br>
+        <a href="downloads/Bloxd EVENTS Official T-Pack (open).zip">Download</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; Parkour Queen YT. All rights reserved.
+  </footer>
+
+</body>
+</html>
