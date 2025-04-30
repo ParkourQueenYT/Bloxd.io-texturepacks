@@ -7,7 +7,6 @@
   <link rel="icon" href="https://i.postimg.cc/GmhFLQ04/server-pfp.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* -------------------- RESET & BASE -------------------- */
     * { box-sizing: border-box; margin:0; padding:0; }
     html, body { height:100%; overflow-x:hidden; font-family:'Poppins',sans-serif; }
     body {
@@ -18,24 +17,29 @@
     }
     @keyframes pageFade { from{opacity:0} to{opacity:1} }
 
-    /* -------------------- HEADER & SECTIONS -------------------- */
     #home { text-align:center; padding:3rem 1rem 1rem; }
     #home img { max-width:80%; filter:drop-shadow(0 0 20px #000); margin-bottom:2rem; }
     .links { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
-    .links a {
-      font-family:'Orbitron',sans-serif; color:#FFF; text-decoration:none;
-      padding:.8rem 1.6rem; border:2px solid #FFF; border-radius:30px;
-      background:rgba(255,255,255,0.05); backdrop-filter:blur(5px);
-      transition:.3s; box-shadow:0 0 10px #f0f,0 0 20px #0ff;
-    }
-    .links a:hover { transform:scale(1.05); background:rgba(0,0,0,0.6); }
 
-    /* ---- PINK STYLES FOR YOUTUBE & DISCORD ---- */
+    /* Default gray buttons */
     .links a[href*="youtube.com"],
     .links a[href*="discord.com"] {
-      background-color: #ff69b4 !important;
-      border-color: #ff69b4 !important;
-      box-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
+      font-family:'Orbitron',sans-serif;
+      color:#FFF;
+      text-decoration:none;
+      padding:.8rem 1.6rem;
+      border:2px solid #333;
+      border-radius:30px;
+      background:#333;
+      transition:.3s;
+    }
+
+    /* Hover pink effect */
+    .links a[href*="youtube.com"]:hover,
+    .links a[href*="discord.com"]:hover {
+      background:#ff69b4;
+      border-color:#ff69b4;
+      color:white;
     }
 
     #texturepacks { text-align:center; padding:2rem 1rem; }
@@ -63,86 +67,10 @@
     footer {
       background:rgba(0,0,0,0.8); text-align:center; padding:1rem; font-size:.9rem;
     }
-
-    /* -------------------- NEON FIRECRACKER CURSOR TRAIL -------------------- */
-    .particle {
-      position:absolute; border-radius:50%; pointer-events:none; z-index:1000;
-      animation:explode .6s ease-out forwards;
-    }
-    @keyframes explode {
-      0% { transform:scale(1); opacity:1; }
-      100% { transform:scale(2.5); opacity:0; }
-    }
-
-    /* -------------------- FUN-FACT WIDGET & ANIMATIONS -------------------- */
-    @keyframes widgetEntrance {
-      0%   { transform: scale(0) rotate(0deg); opacity:0; }
-      60%  { transform: scale(1.2) rotate(360deg); opacity:1; }
-      100% { transform: scale(1) rotate(360deg); opacity:1; }
-    }
-    @keyframes widgetPulse {
-      0%,100% { box-shadow:0 0 15px rgba(0,255,255,0.7); }
-      50%      { box-shadow:0 0 30px rgba(255,0,255,0.9),0 0 30px rgba(0,255,255,0.9); }
-    }
-
-    .fact-widget {
-      position:fixed; bottom:20px; left:20px; width:60px; height:60px;
-      background:linear-gradient(135deg,#0ff,#f0f); border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-      cursor:pointer; transform-origin:center;
-      animation:widgetEntrance 1s ease-out 1;
-      animation-fill-mode:forwards;
-      transition:transform .3s ease;
-    }
-    .fact-widget:hover {
-      animation:widgetPulse 2s infinite alternate;
-      transform:scale(1.2) rotate(20deg);
-    }
-    .fact-widget::after {
-      content:'?'; font-family:'Orbitron'; font-size:2rem; color:#000;
-    }
-
-    .fact-panel {
-      position:fixed; bottom:100px; left:20px; max-width:260px;
-      background:rgba(0,0,0,0.8); border-radius:12px; padding:1rem;
-      color:#fff; font-size:.9rem; line-height:1.3;
-      box-shadow:0 0 20px rgba(0,255,255,0.6);
-      opacity:0; visibility:hidden; transition:opacity .4s ease,visibility .4s;
-    }
-    .fact-panel.show {
-      opacity:1; visibility:visible;
-    }
-
-    .widget-sparkle {
-      position:absolute; width:6px; height:6px; border-radius:50%;
-      pointer-events:none; animation:widgetPop .8s ease-out forwards;
-    }
-    @keyframes widgetPop {
-      0% { transform:scale(1); opacity:1; }
-      100% { transform:scale(3); opacity:0; }
-    }
-
-    .button-animate {
-      transition: transform 0.2s ease, background 0.3s ease;
-    }
-    .button-animate:active {
-      transform: scale(0.95);
-      background-color: rgba(255, 255, 255, 0.3);
-    }
-
-    .hover-effect:hover {
-      cursor: url('https://i.postimg.cc/s2T9JYbc/cursor-icon.png'), pointer;
-    }
-
-    @media(max-width:768px){
-      .fact-panel { bottom:80px; left:10px; max-width:200px; font-size:.8rem; }
-      .fact-widget { bottom:15px; left:15px; width:50px; height:50px; }
-    }
   </style>
 </head>
 <body>
 
-  <!-- Home -->
   <section id="home">
     <img src="https://i.postimg.cc/44SZVt3L/Title-website.png" alt="Parkour Queen Title">
     <div class="links">
@@ -151,14 +79,13 @@
     </div>
   </section>
 
-  <!-- Texture Packs -->
   <section id="texturepacks">
     <h2>Texture Packs</h2>
     <p class="texturepack-description">
       Browse and download our official texture pack made for Bloxd.io events and tournaments!
     </p>
     <div class="texturepack-list">
-      <div class="texturepack-item button-animate hover-effect">
+      <div class="texturepack-item">
         <img src="https://i.postimg.cc/59LXfLMC/bloxd-io-logo.png" alt="Texturepack Image">
         <h3>Bloxd EVENTS Official T-Pack</h3>
         <a href="https://raw.githubusercontent.com/ParkourQueenYT/Bloxd.io-texturepacks/main/Bloxd%20EVENTS%20Official%20T-Pack.zip" download>
@@ -168,78 +95,9 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     &copy; 2025 Parkour Queen YT. All rights reserved.
   </footer>
-
-  <!-- Fun Fact Widget & Panel -->
-  <div class="fact-widget" id="factWidget"></div>
-  <div class="fact-panel" id="factPanel"></div>
-
-  <script>
-    // Cursor Trail
-    document.addEventListener('mousemove', e => {
-      for(let i=0;i<4;i++){
-        const p = document.createElement('div');
-        p.classList.add('particle');
-        const cols = ['#0ff','#f0f','#0f0','#ff0','#f80'];
-        const c = cols[Math.floor(Math.random()*cols.length)];
-        p.style.background = c;
-        p.style.boxShadow = `0 0 8px ${c},0 0 16px ${c}`;
-        const size = Math.random()*6+4;
-        p.style.width = p.style.height = size+'px';
-        p.style.left = e.pageX + (Math.random()*20-10) + 'px';
-        p.style.top = e.pageY + (Math.random()*20-10) + 'px';
-        document.body.appendChild(p);
-        setTimeout(()=>p.remove(),600);
-      }
-    });
-
-    const facts = [
-      "Bloxd's creator is Arthur Baker.",
-      "When u jump right before u land on ground u get better speed \"Bhops\".",
-      "You can load 200 chunks of map in Bloxd for now.",
-      "You can make new games instead of Bloxd with code block and world code.",
-      "Rohuu helped making this site, what a good guy.",
-      "Parkour Queen owns Bloxd's biggest event server as far as known.",
-      "This Tpack increases your fps \"fish certified\".",
-      "\"How many Plums do you have?\" is an iconic line in the community.",
-      "Lucky tower is not only luck based game.",
-      "Tom is the only person with 3 letter word in Bloxd (he's developer).",
-      "Crystal PvP is a thing now in Bloxd because of coding!!"
-    ];
-
-    const widget = document.getElementById('factWidget');
-    const panel  = document.getElementById('factPanel');
-
-    widget.addEventListener('mouseenter', () => {
-      const idx = Math.floor(Math.random()*facts.length);
-      panel.textContent = facts[idx];
-      panel.classList.add('show');
-
-      if(idx === 4) {
-        for(let i=0;i<15;i++){
-          const s = document.createElement('div');
-          s.classList.add('widget-sparkle');
-          const angle = Math.random()*Math.PI*2;
-          const dist  = Math.random()*40+20;
-          const x = widget.offsetLeft + widget.offsetWidth/2 + Math.cos(angle)*dist;
-          const y = widget.offsetTop  + widget.offsetHeight/2 + Math.sin(angle)*dist;
-          s.style.left = x + 'px';
-          s.style.top  = y + 'px';
-          const color = ['#0ff','#f0f','#ff0'][Math.floor(Math.random()*3)];
-          s.style.background = color;
-          s.style.boxShadow = `0 0 6px ${color},0 0 12px ${color}`;
-          document.body.appendChild(s);
-          setTimeout(()=> s.remove(), 800);
-        }
-      }
-    });
-    widget.addEventListener('mouseleave', () => {
-      panel.classList.remove('show');
-    });
-  </script>
 
 </body>
 </html>
