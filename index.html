@@ -7,6 +7,7 @@
   <link rel="icon" href="https://i.postimg.cc/GmhFLQ04/server-pfp.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* -------------------- RESET & BASE -------------------- */
     * { box-sizing: border-box; margin:0; padding:0; }
     html, body { height:100%; overflow-x:hidden; font-family:'Poppins',sans-serif; }
     body {
@@ -17,6 +18,7 @@
     }
     @keyframes pageFade { from{opacity:0} to{opacity:1} }
 
+    /* -------------------- HEADER & SECTIONS -------------------- */
     #home { text-align:center; padding:3rem 1rem 1rem; }
     #home img { max-width:80%; filter:drop-shadow(0 0 20px #000); margin-bottom:2rem; }
     .links { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
@@ -64,8 +66,22 @@
     }
     .texturepack-item a:hover { background:#f0f; color:#fff; transform:scale(1.05); }
 
+    /* -------------------- FOOTER -------------------- */
     footer {
       background:rgba(0,0,0,0.8); text-align:center; padding:1rem; font-size:.9rem;
+    }
+
+    /* -------------------- NEON FIRECRACKER CURSOR TRAIL -------------------- */
+    .particle {
+      position:absolute;
+      border-radius:50%;
+      pointer-events:none;
+      z-index:1000;
+      animation:explode .6s ease-out forwards;
+    }
+    @keyframes explode {
+      0% { transform:scale(1); opacity:1; }
+      100% { transform:scale(2.5); opacity:0; }
     }
   </style>
 </head>
@@ -99,5 +115,25 @@
     &copy; 2025 Parkour Queen YT. All rights reserved.
   </footer>
 
+  <!-- Firecracker Mouse Trail Script -->
+  <script>
+    document.addEventListener('mousemove', e => {
+      for (let i = 0; i < 4; i++) {
+        const p = document.createElement('div');
+        p.classList.add('particle');
+        const colors = ['#00ffe5','#ff00e0','#00ff88','#fffc00','#ff3c00'];
+        const c = colors[Math.floor(Math.random()*colors.length)];
+        p.style.background = c;
+        p.style.boxShadow = `0 0 10px ${c}, 0 0 20px ${c}`;
+        const size = Math.random()*6 + 4;
+        p.style.width = p.style.height = `${size}px`;
+        p.style.left = `${e.pageX + (Math.random()*20 - 10)}px`;
+        p.style.top = `${e.pageY + (Math.random()*20 - 10)}px`;
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 600);
+      }
+    });
+  </script>
 </body>
 </html>
+
