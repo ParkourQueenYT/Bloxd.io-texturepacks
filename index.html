@@ -23,25 +23,27 @@
     #home img { max-width:80%; filter:drop-shadow(0 0 20px #000); margin-bottom:2rem; }
     .links { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
 
-    /* Default gray buttons */
+    /* Default neon pink buttons */
     .links a[href*="youtube.com"],
     .links a[href*="discord.com"] {
       font-family:'Orbitron',sans-serif;
       color:#FFF;
       text-decoration:none;
       padding:.8rem 1.6rem;
-      border:2px solid #333;
+      border:2px solid #ff69b4;
       border-radius:30px;
       background:#333;
       transition:.3s;
+      text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4;
     }
 
-    /* Hover pink effect */
+    /* Hover effect */
     .links a[href*="youtube.com"]:hover,
     .links a[href*="discord.com"]:hover {
       background:#ff69b4;
       border-color:#ff69b4;
       color:white;
+      box-shadow: 0 0 15px #ff69b4, 0 0 30px #ff69b4;
     }
 
     #texturepacks { text-align:center; padding:2rem 1rem; }
@@ -83,6 +85,17 @@
       0% { transform:scale(1); opacity:1; }
       100% { transform:scale(2.5); opacity:0; }
     }
+
+    /* Small credit text */
+    .credit {
+      position:fixed;
+      bottom:10px;
+      left:10px;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.7);
+      font-family: 'Poppins', sans-serif;
+      z-index: 1000;
+    }
   </style>
 </head>
 <body>
@@ -104,9 +117,10 @@
       <div class="texturepack-item">
         <img src="https://i.postimg.cc/59LXfLMC/bloxd-io-logo.png" alt="Texturepack Image">
         <h3>Bloxd EVENTS Official T-Pack</h3>
-        <a href="https://raw.githubusercontent.com/ParkourQueenYT/Bloxd.io-texturepacks/main/Bloxd%20EVENTS%20Official%20T-Pack.zip" download>
+        <a href="https://raw.githubusercontent.com/ParkourQueenYT/Bloxd.io-texturepacks/main/Bloxd%20EVENTS%20Official%20T-Pack.zip" id="download-button" download>
           Download Pack
         </a>
+        <p id="download-count">Downloads: 6</p>
       </div>
     </div>
   </section>
@@ -133,7 +147,30 @@
         setTimeout(() => p.remove(), 600);
       }
     });
+
+    // Download counter integration
+    const downloadButton = document.getElementById('download-button');
+    const downloadCountText = document.getElementById('download-count');
+
+    // Fetch current download count from API
+    fetch('https://api.countapi.xyz/get/parkour-queen-tpack-downloads')
+      .then(response => response.json())
+      .then(data => {
+        downloadCountText.textContent = `Downloads: ${data.value}`;
+      });
+
+    // Update the count when someone clicks the download button
+    downloadButton.addEventListener('click', () => {
+      fetch('https://api.countapi.xyz/hit/parkour-queen-tpack-downloads')
+        .then(response => response.json())
+        .then(data => {
+          downloadCountText.textContent = `Downloads: ${data.value}`;
+        });
+    });
   </script>
+
+  <!-- Small credit -->
+  <div class="credit">Made by cube672</div>
+
 </body>
 </html>
-
