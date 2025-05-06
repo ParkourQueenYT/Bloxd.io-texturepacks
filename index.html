@@ -143,22 +143,18 @@
     const downloadButton = document.getElementById('download-button');
     const downloadCountText = document.getElementById('download-count');
 
-    // Abacus counter
-    downloadButton.addEventListener('click', () => {
-      fetch('https://abacus.jasoncameron.dev/hit/parkourqueenyt.github.io/downloads')
-        .then(res => res.json())
-        .then(data => {
-          downloadCountText.textContent = `Downloads: ${data.value}`;
-        });
+// Abacus counter
+downloadButton.addEventListener('click', () => {
+  fetch('https://abacus.jasoncameron.dev/hit/parkourqueenyt.github.io/downloads') 
+    .then(res => res.json())
+    .then(data => {
+      downloadCountText.textContent = Downloads: ${data.value};
     });
+});
 
-    fetch('https://abacus.jasoncameron.dev/hit/parkourqueenyt.github.io/downloads')
-      .then(res => res.json())
-      .then(data => {
-        downloadCountText.textContent = `Downloads: ${data.value}`;
-      });
-  </script>
-
-  <div class="credit">Made by cube672 & chipkali</div>
-</body>
-</html>
+// Fetch current download count when page loads
+fetch('https://abacus.jasoncameron.dev/get/parkourqueenyt.github.io/downloads')
+  .then(res => res.json())
+  .then(data => {
+    downloadCountText.textContent = Downloads: ${data.value};
+  });
