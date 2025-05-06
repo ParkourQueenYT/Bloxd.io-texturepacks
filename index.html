@@ -65,8 +65,27 @@
     .texturepack-item a:hover { background:#f0f; color:#fff; transform:scale(1.05); }
 
     footer {
-      background:rgba(0,0,0,0.8); text-align:center; padding:1rem; font-size:.9rem;
+      background:rgba(0,0,0,0.8); padding:1rem;
     }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 100%;
+      flex-wrap: nowrap;
+      padding: 0 1rem;
+    }
+    .footer-left,
+    .footer-center,
+    .footer-right {
+      flex: 1;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .footer-left { text-align: left; }
+    .footer-center { text-align: center; }
+    .footer-right { text-align: right; }
 
     .particle {
       position:absolute;
@@ -78,16 +97,6 @@
     @keyframes explode {
       0% { transform:scale(1); opacity:1; }
       100% { transform:scale(2.5); opacity:0; }
-    }
-
-    .credit {
-      position:fixed;
-      bottom:10px;
-      left:10px;
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.7);
-      font-family: 'Poppins', sans-serif;
-      z-index: 1000;
     }
   </style>
 </head>
@@ -117,14 +126,13 @@
       </div>
     </div>
   </section>
-    <footer>
-  <div class="footer-content">
-    <div class="footer-left">Credits: Cube672</div>
-    <div class="footer-center">&copy; 2025 Parkour Queen YT. All rights reserved.</div>
-    <div class="footer-right">Discord: itz_parkour_queen</div>
-  </div>
-</footer>
 
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">Credits: Cube672</div>
+      <div class="footer-center">&copy; 2025 Parkour Queen YT. All rights reserved.</div>
+      <div class="footer-right">Discord: itz_parkour_queen</div>
+    </div>
   </footer>
 
   <script>
@@ -148,18 +156,19 @@
     const downloadButton = document.getElementById('download-button');
     const downloadCountText = document.getElementById('download-count');
 
-// Abacus counter
-downloadButton.addEventListener('click', () => {
-  fetch('https://abacus.jasoncameron.dev/hit/parkourqueenyt.github.io/downloads') 
-    .then(res => res.json())
-    .then(data => {
-      downloadCountText.textContent = Downloads: ${data.value};
+    downloadButton.addEventListener('click', () => {
+      fetch('https://abacus.jasoncameron.dev/hit/parkourqueenyt.github.io/downloads') 
+        .then(res => res.json())
+        .then(data => {
+          downloadCountText.textContent = `Downloads: ${data.value}`;
+        });
     });
-});
 
-// Fetch current download count when page loads
-fetch('https://abacus.jasoncameron.dev/get/parkourqueenyt.github.io/downloads')
-  .then(res => res.json())
-  .then(data => {
-    downloadCountText.textContent = Downloads: ${data.value};
-  });
+    fetch('https://abacus.jasoncameron.dev/get/parkourqueenyt.github.io/downloads')
+      .then(res => res.json())
+      .then(data => {
+        downloadCountText.textContent = `Downloads: ${data.value}`;
+      });
+  </script>
+</body>
+</html>
