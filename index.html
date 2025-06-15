@@ -156,15 +156,17 @@
     const downloadButton = document.getElementById('download-button');
     const downloadCountText = document.getElementById('download-count');
 
+    const counterKey = 'parkourqueenyt.github.io/downloads-reset-may19-v1'; // ✅ NEW unused key!
+
     downloadButton.addEventListener('click', () => {
-      fetch('https://abacus.jasoncameron.dev/hit/parkourqueenyt.github.io/downloads') 
+      fetch(`https://abacus.jasoncameron.dev/hit/${counterKey}`) 
         .then(res => res.json())
         .then(data => {
           downloadCountText.textContent = `Downloads: ${data.value}`;
         });
     });
 
-    fetch('https://abacus.jasoncameron.dev/get/parkourqueenyt.github.io/downloads')
+    fetch(`https://abacus.jasoncameron.dev/get/${counterKey}`)
       .then(res => res.json())
       .then(data => {
         downloadCountText.textContent = `Downloads: ${data.value}`;
